@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
+
   <body>
     <div id="root"></div>
 
-    <script type="module">
-      // Fetch + transform JSX → JS
-      async function loadModule(url) {
-        const jsx = await fetch(url).then(r => r.text());
-        const transformed = Babel.transform(jsx, {
-          presets: ["react"]
-        }).code;
-        return import(`data:text/javascript;base64,${btoa(transformed)}`);
-      }
+    <!-- Load your JSX module -->
+    <script type="text/babel" src="twilightimperium.jsx"></script>
 
-      // Load your module
-      loadModule('./twilightimperium.jsx').then(({ TI4ExtraComputer }) => {
-        const root = ReactDOM.createRoot(document.getElementById("root"));
-        root.render(<TI4ExtraComputer />);
-      });
+    <!-- Your main script that uses the module -->
+    <script type="text/babel">
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <TI4ExtraComputer />
+      );
     </script>
   </body>
 </html>

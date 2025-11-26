@@ -2,22 +2,22 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <!-- Load the UMD builds of React and ReactDOM -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Babel Standalone will compile our JSX on the fly -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
 
   <body>
+    <!-- Mount point for our React application -->
     <div id="root"></div>
 
-    <!-- Load your JSX module -->
-    <script type="text/babel" data-type="module" src="twilightimperium.jsx"></script>
-
-    <!-- Your main script that uses the module -->
-    <script type="text/babel">
-      ReactDOM.createRoot(document.getElementById("root")).render(
-        <TI4ExtraComputer />
-      );
+    <!-- Inline module script: import the main component from the JSX module and render it -->
+    <script type="text/babel" data-type="module">
+      import TI4ExtraComputer from './twilightimperium.jsx';
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(<TI4ExtraComputer />);
     </script>
   </body>
 </html>

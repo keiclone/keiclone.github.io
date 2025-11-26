@@ -2171,3 +2171,5 @@ export function TI4ExtraComputer() {
     </div>
   );
 }
+export default TI4ExtraComputer;
+

@@ -1043,7 +1043,7 @@ function ActionPhase({
 }
 
 // Main App component
-export default function TI4ExtraComputer() {
+export function TI4ExtraComputer() {
   const [gameState, setGameState] = useState(() => getInitialState(STORAGE_KEY, INITIAL_STATE));
   const [resetKey, setResetKey] = useState(0);
 

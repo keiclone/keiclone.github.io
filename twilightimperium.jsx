@@ -1698,8 +1698,8 @@ function ActionPhase({
                       className="flex items-center gap-3 p-3 rounded-xl bg-slate-700/50"
                     >
                       <div
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold"
-                        style={{ backgroundColor: player.color }}
+                  className="flex items-center justify-center text-white font-bold"
+                  style={{ width: '2.5rem', height: '2.5rem', borderRadius: '9999px', backgroundColor: player.color }}
                       >
                         {idx + 1}
                       </div>

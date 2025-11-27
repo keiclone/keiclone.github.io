@@ -1,4 +1,4 @@
-const { useState, useEffect, useCallback, useRef } = React;
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 // All TI4 Factions organized by expansion
 const FACTIONS = {
@@ -1043,7 +1043,7 @@ function ActionPhase({
 }
 
 // Main App component
- function TI4ExtraComputer() {
+export default function TI4ExtraComputer() {
   const [gameState, setGameState] = useState(() => getInitialState(STORAGE_KEY, INITIAL_STATE));
   const [resetKey, setResetKey] = useState(0);
 
@@ -1689,17 +1689,18 @@ function ActionPhase({
           {gameState.players.length > 0 && (
             <div className="bg-slate-800/50 rounded-2xl p-6 mb-6 border border-slate-700">
               <h2 className="text-xl font-bold mb-4">Players</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 {gameState.players.map((player, idx) => {
                   const faction = ALL_FACTIONS.find(f => f.id === player.factionId);
                   return (
                     <div
                       key={player.id}
                       className="flex items-center gap-3 p-3 rounded-xl bg-slate-700/50"
+                      style={{ width: '100%' }}
                     >
                       <div
-                  className="flex flex-shrink-0 items-center justify-center text-white font-bold"
-                  style={{ width: '2.5rem', height: '2.5rem', borderRadius: '9999px', backgroundColor: player.color }}
+                        className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0"
+                        style={{ backgroundColor: player.color }}
                       >
                         {idx + 1}
                       </div>
@@ -1707,14 +1708,15 @@ function ActionPhase({
                         type="text"
                         value={player.name}
                         onChange={(e) => updatePlayer(player.id, { name: e.target.value })}
-                        className="flex-1 bg-slate-600 rounded-lg px-3 py-2 text-white"
+                        className="flex-1 bg-slate-600 rounded-lg px-3 py-2 text-white min-w-0"
                         placeholder="Player name"
                       />
                       <button
                         onClick={() => setSelectingFactionFor(player)}
-                        className="px-3 py-2 rounded-lg transition-all flex items-center gap-2 min-w-40"
+                        className="px-3 py-2 rounded-lg transition-all flex items-center gap-2 flex-shrink-0"
                         style={{ 
                           backgroundColor: faction ? `${faction.color}88` : '#475569',
+                          minWidth: '160px',
                         }}
                       >
                         {faction ? (
@@ -2171,5 +2173,3 @@ function ActionPhase({
     </div>
   );
 }
-
-

@@ -8,16 +8,14 @@
     <!-- Babel Standalone will compile our JSX on the fly -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
-
   <body>
     <!-- Mount point for our React application -->
     <div id="root"></div>
-
-    <!-- Inline module script: import the main component from the JSX module and render it -->
-    <script type="text/babel" data-type="module">
-      import TI4ExtraComputer from './twilightimperium.jsx';
+    <!-- Load our JSX component and render it -->
+    <scripTESTt type="text/babel" src="twilightimperium.jsx"></script>
+    <script type="text/babel">
       const root = ReactDOM.createRoot(document.getElementById('root'));
       root.render(<TI4ExtraComputer />);
     </script>
   </body>
-</html>
+</html> 

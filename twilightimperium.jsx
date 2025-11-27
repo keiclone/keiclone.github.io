@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+const { useState, useEffect, useCallback, useRef } = React;
 
 // All TI4 Factions organized by expansion
 const FACTIONS = {
@@ -1043,7 +1043,7 @@ function ActionPhase({
 }
 
 // Main App component
-export default function TI4ExtraComputer() {
+function TI4ExtraComputer() {
   const [gameState, setGameState] = useState(() => getInitialState(STORAGE_KEY, INITIAL_STATE));
   const [resetKey, setResetKey] = useState(0);
 

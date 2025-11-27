@@ -2,16 +2,14 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-        <!-- Tailwind CSS -->
-       <!-- Tailwind config safelist to include all classes -->
+    <!-- Tailwind CSS config and CDN -->
     <script>
       tailwind.config = {
-        safelist: [ { pattern: /.*/ } ]
+        content: ['twilightimperium.jsx'],
+        safelist: [{ pattern: /.*/ }]
       };
     </script>
-    <!-- TailWind Play CDN -->
-    <script src="https://cdn.tailwindcss.com""></scipt>
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load the UMD builds of React and ReactDOM -->
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -28,4 +26,4 @@
       root.render(<TI4ExtraComputer />);
     </script>
   </body>
-</html> 
+</html>
